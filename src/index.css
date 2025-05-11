@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  /* Dark colors */
+  --color-dark-bg: #0a0f2a;
+  --color-dark-text: #fafafa;
+
+  /* light colors */
+  --color-light-bg: #fafafa;
+  --color-light-text: #202020;
+
+  /* accent color */
+  --color-primary: #00e0ff;
+  --color-accent: #ea15e7;
+
+
+  /* font */
+  --font-primay: "Cabin", sans-serif;
+  --font-heading: "Inter", sans-serif;
+  
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+  body {
+    @apply flex justify-center font-primay w-full  relative;
+    @apply bg-light-bg text-light-text;
+    @apply dark:text-dark-text dark:bg-dark-bg;
+
+  }
+}
+
+@layer components {
+  .cm-dark {
+    @apply dark:bg-dark-bg dark:text-dark-text;
+  }
+  .cm-light {
+    @apply bg-light-bg text-light-text;
+  }
+
+  .cm-text-accent {
+    @apply text-accent ;
+  }
+  .cm-bg-accent {
+    @apply bg-accent;
+  }
+}
+
+@layer utilities {
+}
+
+#root {
+  @apply w-3/4 max-w-3/4 ;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
